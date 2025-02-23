@@ -193,10 +193,20 @@
                 <td>@book.Genre</td>
                 <td>@book.PublishDate.ToShortDateString()</td>
                 <td>
-                    <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-info">Detaylar</a>
-                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-warning">Düzenle</a>
-                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Sil</a>
-                </td>
+    <!-- Icon-only buttons -->
+    <a asp-controller="Book" asp-action="Details" asp-route-id="@book.Id"
+       class="op-btn op-btn-view" title="View">
+        <i class="bi bi-info-circle"></i>
+    </a>
+    <a asp-controller="Book" asp-action="Edit" asp-route-id="@book.Id"
+       class="op-btn op-btn-edit" title="Edit">
+        <i class="bi bi-pencil-square"></i>
+    </a>
+    <a asp-controller="Book" asp-action="Delete" asp-route-id="@book.Id"
+       class="op-btn op-btn-delete" title="Delete">
+        <i class="bi bi-trash"></i>
+    </a>
+</td>
             </tr>
         }
     </tbody>
