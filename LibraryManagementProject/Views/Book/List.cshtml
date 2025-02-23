@@ -160,6 +160,15 @@
         </div>
     </div>
 
+<div class="form-group">
+    <label for="AuthorId">Yazar Seçin</label>
+    <select asp-for="AuthorId" asp-items="ViewBag.Authors" class="form-control" required>
+        <option value="">-- Yazar Seçin --</option>
+    </select>
+    <span asp-validation-for="AuthorId" class="text-danger"></span>
+</div>
+
+
     <div class="card-fener">
         <div class="card-header-fener">
             Book List
