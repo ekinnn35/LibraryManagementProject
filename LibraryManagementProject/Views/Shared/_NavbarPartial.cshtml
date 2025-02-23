@@ -1,0 +1,47 @@
+@* _NavbarPartial.cshtml *@
+<nav class="navbar navbar-expand-lg navbar-fener shadow-sm">
+    <div class="container position-relative">
+        <!-- Büyük ekranlarda markayı gizleyip sadece menüyü ortada gösteriyoruz -->
+        <a class="navbar-brand fw-bold d-none d-lg-block position-absolute start-50 translate-middle-x" 
+           asp-controller="Home" asp-action="Index">
+            FenerLibrary
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#fenerNav" 
+                aria-controls="fenerNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-left" id="fenerNav">
+            <ul class="navbar-nav">
+                <li class="nav-item mx-2">
+                    <a class="nav-link" asp-controller="Home" asp-action="About">About</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" asp-controller="Book" asp-action="List">Books</a>
+                </li>
+                <li class="nav-item mx-2">
+                    <a class="nav-link" asp-controller="Author" asp-action="List">Authors</a>
+                </li>
+            </ul>
+        </div>
+        <!-- Küçük ekranlarda markayı sol üstte gösteriyoruz -->
+        <a class="navbar-brand fw-bold d-lg-none" asp-controller="Home" asp-action="Index">FenerLibrary</a>
+    </div>
+</nav>
+
+<style>
+    .navbar-fener {
+        background: none; /* Arka plan saydam, arka plan gradienti görünür */
+    }
+    .navbar-fener .navbar-brand,
+    .navbar-fener .nav-link {
+        color: #fff !important; /* Beyaz metin */
+        font-weight: 500;
+        transition: color 0.2s;
+    }
+    .navbar-fener .nav-link:hover {
+        color: #fefae0 !important;
+    }
+    .navbar-fener .navbar-toggler-icon {
+        filter: invert(1);
+    }
+</style>

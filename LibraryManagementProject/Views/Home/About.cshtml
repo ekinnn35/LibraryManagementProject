@@ -1,0 +1,50 @@
+@{
+    ViewData["Title"] = "Hakkımızda";
+}
+
+<section class="about-section d-flex align-items-center justify-content-center">
+    <div class="about-overlay p-4">
+        <h2 class="mb-4 fw-bold text-center">Hakkımızda</h2>
+        
+        <p style="text-align: justify;">
+            FenerLibrary, <strong>Fenerbahçe</strong> renklerinden ilham alan modern ve kullanıcı dostu bir kütüphane yönetim sistemidir. 
+            Bu sistem, kitaplarınızı düzenlemenizi, yazarlarınızı takip etmenizi ve kütüphanenizi etkili bir şekilde yönetmenizi sağlar.
+        </p>
+        
+        <p style="text-align: justify;">
+            Projemiz, <strong>disiplin</strong>, <strong>azim</strong> ve <strong>başarı</strong> kavramlarını Fenerbahçe ruhuyla harmanlayarak, 
+            kütüphane yönetim süreçlerinizi hem keyifli hem de pratik hale getirmeyi amaçlamaktadır. 
+            Kullanıcı geri bildirimleri ve katkılar, sistemimizi sürekli olarak geliştirmemize yardımcı olmaktadır.
+        </p>
+        
+        <p style="text-align: justify;">
+            Menüden <strong>Books</strong> veya <strong>Authors</strong> sayfalarına geçerek sistemimizin sunduğu özellikleri keşfedebilirsiniz.
+        </p>
+        
+        <p class="mt-4 text-center fw-bold">
+            Teşekkürler ve iyi keşifler!
+        </p>
+    </div>
+</section>
+
+<style>
+    /* Tüm bölümü ekrana ortalamak için flex düzen */
+    .about-section {
+        min-height: 80vh; /* Tüm pencere yüksekliği */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        /* Arka plan, _Layout.cshtml içinde gradient ise ek bir renk gerekmez */
+    }
+
+    /* Yarı saydam katman: arka planı biraz koyulaştırıp yazıyı öne çıkarır */
+    .about-overlay {
+        background-color: rgba(0, 0, 0, 0.226); /* Siyah %40 opak */
+        color: #fff; /* Beyaz metin */
+        border-radius: 10px;
+        max-width: 800px;
+        width: 100%;
+        /* padding: 4 => p-4 bootstrap ile verildi */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.294); /* Hafif gölge */
+    }
+</style>

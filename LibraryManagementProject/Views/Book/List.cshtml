@@ -1,0 +1,198 @@
+@model List<BookViewModel>
+
+<style>
+    .fener-list-container {
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .fener-list-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 20px;
+    }
+    .fener-list-header h1 {
+        margin: 0;
+        font-size: 1.75rem;
+        font-weight: 700;
+        color: #0E2240; /* Lacivert */
+    }
+
+    /* Lacivert-Sarı Butonlar */
+    .btn-fener {
+        background-color: #0E2240; /* Lacivert */
+        color: #FFDD00;           /* Sarı */
+        border: 2px solid #0E2240;
+        border-radius: 20px;
+        font-weight: 600;
+        transition: background-color 0.2s, transform 0.2s;
+        padding: 8px 20px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-fener:hover {
+        background-color: #FFDD00;
+        color: #0E2240;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    .btn-fener-outline {
+        background-color: #fff;
+        color: #0E2240;
+        border: 2px solid #0E2240;
+        border-radius: 20px;
+        font-weight: 600;
+        transition: border-color 0.2s, color 0.2s, transform 0.2s;
+        padding: 8px 20px;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-fener-outline:hover {
+        border-color: #FFDD00;
+        color: #FFDD00;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+
+    .card-fener {
+        border: none;
+        border-radius: 10px;
+        background-color: #fff;
+    }
+    .card-header-fener {
+        background-color: #fff;
+        color: #0E2240;
+        font-weight: 600;
+        font-size: 1.2rem;
+        border-bottom: 2px solid #0E2240;
+        border-radius: 10px 10px 0 0;
+        padding: 15px;
+    }
+
+    .table-fener {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0;
+    }
+    .table-fener thead {
+        border-bottom: 2px solid #0E2240;
+    }
+    .table-fener th, .table-fener td {
+        padding: 12px;
+        text-align: center;
+        border: none;
+        white-space: nowrap;
+    }
+    .table-fener tbody tr:nth-child(odd) {
+        background-color: #fafafa;
+    }
+
+    /* Operation buttons */
+    .op-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        margin: 2px;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: transform 0.2s;
+    }
+    .op-btn i {
+        margin: 0;
+    }
+    .op-btn-view {
+        background-color: #0E2240;
+        color: #FFDD00;
+        border: 2px solid #0E2240;
+    }
+    .op-btn-view:hover {
+        background-color: #FFDD00;
+        color: #0E2240;
+        transform: translateY(-2px);
+    }
+    .op-btn-edit {
+        background-color: #fff;
+        color: #0E2240;
+        border: 2px solid #0E2240;
+    }
+    .op-btn-edit:hover {
+        background-color: #0E2240;
+        color: #FFDD00;
+        transform: translateY(-2px);
+    }
+    .op-btn-delete {
+        background-color: #fff;
+        color: #dc3545;
+        border: 2px solid #dc3545;
+    }
+    .op-btn-delete:hover {
+        background-color: #dc3545;
+        color: #fff;
+        transform: translateY(-2px);
+    }
+
+    a, a:visited, a:hover, a:active {
+        text-decoration: none !important;
+    }
+</style>
+
+<div class="fener-list-container">
+    <div class="fener-list-header">
+        <h1>Book List</h1>
+        <div>
+            <a asp-controller="Home" asp-action="Index" class="btn-fener-outline me-2" title="Back">
+                <i class="bi bi-arrow-left-circle"></i>
+            </a>
+            <a asp-controller="Book" asp-action="Create" class="btn-fener" title="Add New Book">
+                <i class="bi bi-plus-circle"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="card-fener">
+        <div class="card-header-fener">
+            Book List
+        </div>
+        <div style="padding: 0 15px 15px;">
+            <table class="table">
+    <thead>
+        <tr>
+            <th>Başlık</th>
+            <th>Yazar</th>
+            <th>Tür</th>
+            <th>Yayın Tarihi</th>
+            <th>İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model)
+        {
+            <tr>
+                <td>@book.Title</td>
+                <td>@(book.AuthorName ?? "Bilinmeyen Yazar")</td>
+                <td>@book.Genre</td>
+                <td>@book.PublishDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@book.Id" class="btn btn-info">Detaylar</a>
+                    <a asp-action="Edit" asp-route-id="@book.Id" class="btn btn-warning">Düzenle</a>
+                    <a asp-action="Delete" asp-route-id="@book.Id" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+.hero-fener {
+    min-height: 70vh; /* İstediğiniz kadar ayarlayabilirsiniz */
+    background: linear-gradient(to right, #0E2240 0%, #FFDD00 100%);
+    /* Yukarıdaki gradient, soldan sağa lacivert -> sarı geçişi sağlar */
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 20px;
+}
+
+.hero-content h1 {
+    color: #fff; /* Metin beyaz, isterseniz sarı da yapabilirsiniz */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: #fdfdfd;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+.hero-btn {
+    background-color: #fff;
+    color: #0E2240;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: transform 0.2s, background-color 0.2s;
+    text-decoration: none;
+}
+
+.hero-btn:hover {
+    background-color: #ffc800; /* Sarıya yakın */
+    transform: translateY(-2px);
+    color: #0E2240;
+}

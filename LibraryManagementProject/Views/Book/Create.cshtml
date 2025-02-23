@@ -1,0 +1,78 @@
+@model BookViewModel
+
+<style>
+    .fener-form-container {
+        max-width: 600px;
+        margin: 60px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 2px solid #0E2240;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fener-form-container h2 {
+        color: #0E2240;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    label {
+        font-weight: 600;
+        color: #0E2240;
+    }
+    .form-control {
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    .btn-fener {
+        background-color: #0E2240;
+        color: #FFDD00;
+        border: 2px solid #0E2240;
+        border-radius: 20px;
+        font-weight: 600;
+        transition: background-color 0.2s, transform 0.2s;
+        padding: 8px 20px;
+        text-decoration: none;
+    }
+    .btn-fener:hover {
+        background-color: #FFDD00;
+        color: #0E2240;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+</style>
+
+<div class="fener-form-container">
+    <h2>Add New Book</h2>
+    <form method="post">
+        <div class="mb-2">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control" />
+        </div>
+        <div class="mb-2">
+            <label asp-for="Genre"></label>
+            <input asp-for="Genre" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="AuthorId">AuthorName</label>
+    <select asp-for="AuthorId" class="form-control" asp-items="@(new SelectList(ViewBag.Authors, "Value", "Text"))">
+                <option value="">Choose the author...</option>
+    </select>
+    <span asp-validation-for="AuthorId" class="text-danger"></span>
+</div>
+
+        <div class="mb-2">
+            <label asp-for="ISBN"></label>
+            <input asp-for="ISBN" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="PublishDate"></label>
+            <input asp-for="PublishDate" type="date" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="CopiesAvailable"></label>
+            <input asp-for="CopiesAvailable" type="number" class="form-control" />
+        </div>
+        <button type="submit" class="btn-fener">Create</button>
+    </form>
+</div>

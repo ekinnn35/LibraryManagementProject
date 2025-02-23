@@ -1,0 +1,63 @@
+@model AuthorViewModel
+
+<style>
+    .fener-form-container {
+        max-width: 600px;              /* Formu daraltarak orta boyutta tutuyoruz */
+        margin: 60px auto;             /* Üstten 60px boşluk, yatayda ortalama */
+        padding: 20px;
+        background-color: #fff;        /* Beyaz arka plan */
+        border: 2px solid #0E2240;     /* Lacivert çerçeve */
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Hafif gölge */
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    .fener-form-container h2 {
+        color: #0E2240;
+        margin-bottom: 20px;
+        text-align: center;            /* Başlığı ortalıyoruz */
+    }
+    label {
+        font-weight: 600;
+        color: #0E2240;
+    }
+    .form-control {
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+    .btn-fener {
+        background-color: #0E2240;     /* Lacivert */
+        color: #FFDD00;               /* Sarı */
+        border: 2px solid #0E2240;
+        border-radius: 20px;
+        font-weight: 600;
+        transition: background-color 0.2s, transform 0.2s;
+        padding: 8px 20px;
+        text-decoration: none;
+    }
+    .btn-fener:hover {
+        background-color: #FFDD00;
+        color: #0E2240;
+        transform: translateY(-2px);
+        text-decoration: none;
+    }
+</style>
+
+<div class="fener-form-container">
+    <h2>Edit Author</h2>
+    <form method="post">
+        <input type="hidden" asp-for="Id" />
+        <div class="mb-2">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" class="form-control" />
+        </div>
+        <div class="mb-2">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="DateOfBirth"></label>
+            <input asp-for="DateOfBirth" type="date" class="form-control" />
+        </div>
+        <button type="submit" class="btn-fener">Update</button>
+    </form>
+</div>
